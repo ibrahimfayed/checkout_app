@@ -13,75 +13,87 @@ class ThankYouCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container( 
+    return Container(
       width: double.infinity,
       decoration: ShapeDecoration(
-        color: const Color(0xffD9D9D9),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20)
-        )
-      ),
+          color: const Color(0xffD9D9D9),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
       child: Padding(
-        padding:const EdgeInsets.only(top:50+16,left: 20,right: 20),
+        padding: const EdgeInsets.only(top: 50 + 16, left: 20, right: 20),
         child: Column(
           children: [
-           const Text('Thank You!',
-            textAlign: TextAlign.center,
-            style: Styles.textstyle25,),
-            Text('Your transaction was successful',
-            textAlign: TextAlign.center,
-            style: Styles.textstyle20,),
-            const SizedBox(height: 42,),
+            const Text(
+              'Thank You!',
+              textAlign: TextAlign.center,
+              style: Styles.textstyle25,
+            ),
+            Text(
+              'Your transaction was successful',
+              textAlign: TextAlign.center,
+              style: Styles.textstyle20,
+            ),
+            const SizedBox(
+              height: 42,
+            ),
             const PaymentItemInfo(
               title: 'Date',
               value: '01/24/2023',
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             const PaymentItemInfo(
               title: 'Time',
               value: '10:15 AM',
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             const PaymentItemInfo(
               title: 'To',
               value: 'Sam Louis',
             ),
             const Divider(
-              height: 60,//30 from top and 30 from buttom
+              height: 60, //30 from top and 30 from buttom
               thickness: 2,
             ),
             const TotalPrice(title: 'Total', value: r'$50.97'),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             const CardInfoWidget(),
-            const SizedBox(height: 20+57,),
+            const SizedBox(
+              height: 20 + 57,
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,//i used spaceBetween because i will use padding around the whole column
+              mainAxisAlignment: MainAxisAlignment
+                  .spaceBetween, //i used spaceBetween because i will use padding around the whole column
               children: [
-               const Icon(FontAwesomeIcons.barcode,
-               size: 64,)//مش مهتم بيها قوي لان مش هستخدمها كده بالنسبة لللوجيك
-              ,Container(
-                width: 113,
-                height: 58,
-                decoration: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                      width: 1.5,
-                      color: Color(0xff34A853),
-                    
-                    ),
-                    borderRadius: BorderRadius.circular(15)
-                  ),
+                const Icon(
+                  FontAwesomeIcons.barcode,
+                  size: 64,
+                ) //مش مهتم بيها قوي لان مش هستخدمها كده بالنسبة لللوجيك
+                ,
+                Container(
+                  width: 113,
+                  height: 58,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          width: 1.5,
+                          color: Color(0xff34A853),
+                        ),
+                        borderRadius: BorderRadius.circular(15)),
                   ),
                   child: Center(
                     child: Text(
                       'PAID',
-                      style: Styles.textstyle24.copyWith(
-                         color:const Color(0xff34A853) 
-                        ),
-                      
+                      style: Styles.textstyle24
+                          .copyWith(color: const Color(0xff34A853)),
                     ),
                   ),
-              )
+                )
               ],
             )
           ],
@@ -90,5 +102,3 @@ class ThankYouCard extends StatelessWidget {
     );
   }
 }
-
-

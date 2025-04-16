@@ -4,26 +4,27 @@ import 'package:flutter/material.dart';
 class PaymentItemInfo extends StatelessWidget {
   const PaymentItemInfo({super.key, required this.title, required this.value});
 
-final String title,value;
+  final String title, value;
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title
+        Text(
+          title
           //'Date'
           ,
-        textAlign: TextAlign.center,
-        style: Styles.textstyle18,
+          textAlign: TextAlign.center,
+          style: Styles.textstyle18,
         ),
-        Text(value
+        Text(
+          value
           //'01/24/2023'
           ,
-        textAlign: TextAlign.center,
-        style: Styles.textstyleBold18,
+          textAlign: TextAlign.center,
+          style: Styles.textstyleBold18,
         )
-
       ],
     );
   }

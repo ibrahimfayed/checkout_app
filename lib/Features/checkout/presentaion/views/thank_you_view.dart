@@ -9,16 +9,15 @@ class ThankYouView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar:// CutomAppBar()
-      AppBar(
-     leading: Center(
-       child: SvgPicture.asset('assets/images/back_arrow.svg')),
-     centerTitle: true,
-            ),
+    return Scaffold(
+      appBar: // CutomAppBar()
+          AppBar(
+        leading:
+            Center(child: SvgPicture.asset('assets/images/back_arrow.svg')),
+        centerTitle: true,
+      ),
       body: Transform.translate(
-        offset:const Offset(0, -16),
-        child:const ThankYouViewBody()),
+          offset: const Offset(0, -16), child: const ThankYouViewBody()),
     );
   }
 }

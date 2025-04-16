@@ -13,39 +13,34 @@ class ThankYouViewBody extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-         const ThankYouCard(),
+          const ThankYouCard(),
           Positioned(
-            bottom: MediaQuery.sizeOf(context).height * 0.2 + 20,//20 is the redius of white circle
-            left: 8 + 20,//20 is the redius of white circle
+            bottom: MediaQuery.sizeOf(context).height * 0.2 +
+                20, //20 is the redius of white circle
+            left: 8 + 20, //20 is the redius of white circle
             right: 8 + 20,
-            child:const CustumDashedLine(),
+            child: const CustumDashedLine(),
           ),
           Positioned(
-            bottom: MediaQuery.sizeOf(context).height * 0.2,
-            left: -20,
-            child:const CircleAvatar(
-              backgroundColor: Colors.white,
-            ) 
-            ),
-            Positioned(
-            bottom: MediaQuery.sizeOf(context).height * 0.2,
-            right: -20,
-            child:const CircleAvatar(
-              backgroundColor: Colors.white,
-            ) 
-            ),
-         const  Positioned(
+              bottom: MediaQuery.sizeOf(context).height * 0.2,
+              left: -20,
+              child: const CircleAvatar(
+                backgroundColor: Colors.white,
+              )),
+          Positioned(
+              bottom: MediaQuery.sizeOf(context).height * 0.2,
+              right: -20,
+              child: const CircleAvatar(
+                backgroundColor: Colors.white,
+              )),
+          const Positioned(
             top: -50,
             left: 0,
             right: 0,
-             child:  CustomCheckIcon(),
-           )
+            child: CustomCheckIcon(),
+          )
         ],
       ),
     );
   }
 }
-
-
-
-
