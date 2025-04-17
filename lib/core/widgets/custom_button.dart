@@ -2,10 +2,8 @@ import 'package:checkout_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key,
-  this.onTap,
-  required this.text,
-  this.isLoading = false});
+  const CustomButton(
+      {super.key, this.onTap, required this.text, this.isLoading = false});
 
   final void Function()? onTap;
   final String text;
@@ -17,12 +15,13 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         child: Center(
-          child: isLoading ? CircularProgressIndicator()
-          :Text(
-            text,
-            textAlign: TextAlign.center,
-            style: Styles.textstyle18,
-          ),
+          child: isLoading
+              ? CircularProgressIndicator()
+              : Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: Styles.textstyle18,
+                ),
         ),
         width: double.infinity,
         height: 73,

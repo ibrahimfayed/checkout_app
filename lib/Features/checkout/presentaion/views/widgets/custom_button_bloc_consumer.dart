@@ -16,37 +16,39 @@ class CustomButtonBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentCubit, PaymentState>(
       listener: (context, state) {
-       if (state is PaymentSuccess) {
-         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
-          return const ThankYouView();
-         }));
-         
-       }else if (state is PaymentFailure){
-        Navigator.of(context).pop();
-        //here i put any error indicator
-        SnackBar snackBar  = SnackBar(content: Text(state.errmessage));
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-       }
+        if (state is PaymentSuccess) {
+          Navigator.of(context)
+              .pushReplacement(MaterialPageRoute(builder: (context) {
+            return const ThankYouView();
+          }));
+        } else if (state is PaymentFailure) {
+          Navigator.of(context).pop();
+          //here i put any error indicator
+          SnackBar snackBar = SnackBar(content: Text(state.errmessage));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        }
       },
       builder: (context, state) {
-        return  CustomButton(
-          onTap: () {
-            // PaymentIntentInputModel paymentIntentInputModel =
-            //  PaymentIntentInputModel(
-            //   amount: '100', currency: 'USD',customerId: 'cus_S93Csp9l8MtbLu');
-            // BlocProvider.of<PaymentCubit>(context).makePayment(
-            //   paymentIntentInputModel: paymentIntentInputModel//here i put the data of final order and in this project data is static
-            //   );
-            //copied from flutter_paypal_payment package
-            Navigator.of(context).push(MaterialPageRoute(
+        return CustomButton(
+            onTap: () {
+              // PaymentIntentInputModel paymentIntentInputModel =
+              //  PaymentIntentInputModel(
+              //   amount: '100', currency: 'USD',customerId: 'cus_S93Csp9l8MtbLu');
+              // BlocProvider.of<PaymentCubit>(context).makePayment(
+              //   paymentIntentInputModel: paymentIntentInputModel//here i put the data of final order and in this project data is static
+              //   );
+              //copied from flutter_paypal_payment package
+              Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) => PaypalCheckoutView(
-                  sandboxMode: true,//live or test mode defult in test
+                  sandboxMode: true, //live or test mode defult in test
                   clientId: "YOUR CLIENT ID",
                   secretKey: "YOUR SECRET KEY",
-                  transactions: const [//here the data of order in details
+                  transactions: const [
+                    //here the data of order in details
                     {
                       "amount": {
-                        "total": '100',//total here must be equal of details below
+                        "total":
+                            '100', //total here must be equal of details below
                         "currency": "USD",
                         "details": {
                           "subtotal": '100',
@@ -60,7 +62,8 @@ class CustomButtonBlocConsumer extends StatelessWidget {
                       //       "INSTANT_FUNDING_SOURCE"
                       // },
                       "item_list": {
-                        "items": [//all numbers here is too importat
+                        "items": [
+                          //all numbers here is too importat
                           {
                             "name": "Apple",
                             "quantity": 4,
@@ -104,9 +107,9 @@ class CustomButtonBlocConsumer extends StatelessWidget {
                   },
                 ),
               ));
-          },
-          isLoading: state is PaymentLoading ? true : false,
-          text: 'Continue');
+            },
+            isLoading: state is PaymentLoading ? true : false,
+            text: 'Continue');
       },
     );
   }

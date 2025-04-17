@@ -28,17 +28,22 @@ class ServerFailure extends Failure {
         if (dioException.message!.contains('SoketException')) {
           return ServerFailure('no connection network');
         }
-        return ServerFailure('A connection error occurred'); // More general message
+        return ServerFailure(
+            'A connection error occurred'); // More general message
       case DioExceptionType.unknown:
         return ServerFailure('An unexpected error occurred, please try again');
       default:
-        return ServerFailure('Oops, there was an error, Please try again'); // More general message
+        return ServerFailure(
+            'Oops, there was an error, Please try again'); // More general message
     }
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
-    if (response is Map<String, dynamic> && response.containsKey('error') && response['error'] is Map<String, dynamic> && response['error'].containsKey('message')) {
-       // Check if response is a Map and contains error message
+    if (response is Map<String, dynamic> &&
+        response.containsKey('error') &&
+        response['error'] is Map<String, dynamic> &&
+        response['error'].containsKey('message')) {
+      // Check if response is a Map and contains error message
       if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
         return ServerFailure(response['error']['message']);
       } else if (statusCode == 404) {
@@ -47,7 +52,7 @@ class ServerFailure extends Failure {
         return ServerFailure('Internal server error, Please try later!');
       }
     }
-     return ServerFailure('Oops, there was an error, Please try again'); // Default error
-
+    return ServerFailure(
+        'Oops, there was an error, Please try again'); // Default error
   }
 }

@@ -7,6 +7,6 @@ class Platform {
   static const bool isLinux = false;
   static const bool isFuchsia = false;
   static const bool isWeb = true;
-  
+
   // Add any other Platform properties you need
 }

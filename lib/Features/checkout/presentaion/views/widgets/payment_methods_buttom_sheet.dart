@@ -1,4 +1,3 @@
-
 import 'package:checkout_app/Features/checkout/presentaion/views/widgets/custom_button_bloc_consumer.dart';
 import 'package:checkout_app/Features/checkout/presentaion/views/widgets/payment_list_view.dart';
 import 'package:checkout_app/core/widgets/custom_button.dart';
@@ -28,4 +27,3 @@ class PaymentMethoudsButtonSheet extends StatelessWidget {
     );
   }
 }
-
