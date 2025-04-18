@@ -17,7 +17,7 @@ class StripeService {
           body: paymentIntentInputModel.toJson(),
           contentType: Headers.formUrlEncodedContentType,
           url: 'https://api.stripe.com/v1/payment_intents',
-          token: ApiKeys.secretKey);
+          token: ApiKeys.stripeSecretKey);
       var paymentIntentModel = PaymentIntentModel.fromJson(response
           .data); //may cause an error and i solved it in notebook and vidio of integrate checkout cubit
       return paymentIntentModel;
@@ -72,7 +72,7 @@ class StripeService {
           body: paymentIntentInputModel.toJson(),
           contentType: Headers.formUrlEncodedContentType,
           url: 'https://api.stripe.com/v1/customers',
-          token: ApiKeys.secretKey);
+          token: ApiKeys.stripeSecretKey);
       var paymentIntentModel = PaymentIntentModel.fromJson(response
           .data); //may cause an error and i solved it in notebook and vidio of integrate checkout cubit
       return paymentIntentModel;
@@ -90,7 +90,7 @@ class StripeService {
         body: {'customer': customerId},
         contentType: Headers.formUrlEncodedContentType,
         url: 'https://api.stripe.com/v1/ephemeral_keys',
-        token: ApiKeys.secretKey, //its not important i can remove it
+        token: ApiKeys.stripeSecretKey, //its not important i can remove it
         headers: {
           // 'Authorization': 'Bearer ${ApiKeys.secretKey}', // CORRECT - proper string interpolation
           // 'Stripe-Version': '2023-10-16'
