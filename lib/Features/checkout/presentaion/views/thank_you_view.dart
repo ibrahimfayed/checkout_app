@@ -1,6 +1,4 @@
 import 'package:checkout_app/Features/checkout/presentaion/views/thank_you_view_body.dart';
-import 'package:checkout_app/core/utils/styles.dart';
-import 'package:checkout_app/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
